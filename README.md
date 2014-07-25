@@ -10,6 +10,6 @@ control coredump in distribution system, avoid multi core dump make system unval
 # 解决方案
 1: 修改linux core_pattern 截取 coredump 控制权.  从 /home/coresave/core.%e.%p.%t 修改为   
 
-			  |/home/xiaoju/go/src/core_filter/core_filter -p %p -e %e -t %t  
+			  |/home/foo/go/src/core_filter/core_filter -p %p -e %e -t %t  
 			 
 2: 开发core_filter 模块来进行core 文件处理, 实现一台机器在一小时内只允许一个进程core dump 一次.  每次core dump 文件大小限制小于 1G, 对于core 大于 1G 只写入开始文件的1G 部分.
