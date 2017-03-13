@@ -13,7 +13,7 @@ import (
 	"time"
 )
 
-var coresaveDir string = "/home/coresave/"
+var coresaveDir string = "/data/data/coresave/"
 
 func coreDirExists() bool {
 	finfo, err := os.Stat(coresaveDir)
