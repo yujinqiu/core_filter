@@ -8,7 +8,7 @@ control coredump in distribution system, avoid multi core dump make system unval
 
 
 # 解决方案
-1: 修改linux core_pattern 截取 coredump 控制权.  从 /home/coresave/core.%e.%p.%t 修改为   
+1: 修改linux `/proc/sys/kernel/core_pattern`  截取 coredump 控制权.  从 /home/coresave/core.%e.%p.%t 修改为   
 
 			  |/home/foo/go/src/core_filter/core_filter -p %p -e %e -t %t  
 			 
