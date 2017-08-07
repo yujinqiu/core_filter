@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"log"
 	"os"
@@ -88,12 +87,12 @@ func main() {
 		bio := bufio.NewReader(os.Stdin)
 		for {
 			size, err := bio.Read(buf)
-			if err == io.EOF {
+			if err != nil {
 				break
 			}
 			coreSize += size
 			if coreSize <= (*maxCoreSize * 1024 * 1024) {
-				coreFile.Write(buf)
+				coreFile.Write(buf[:size])
 			}
 		}
 		coreFile.Sync()
